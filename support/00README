@@ -1,0 +1,32 @@
+Support for diaplot().
+
+20180?.txt are the monthly data files of Blood Glucose, Basal Insulin
+(Optisulin, aka Lantus, hence `L'), and Bolus Insulin (Apidra).
+
+There is no reason why this should not work for mg/dl (American) units, but
+diaplot() has been coded with mmol/l in mind.
+
+The date-and-time stamp is inserted into the 20180?.txt files via a simple
+abbreviation in the vim() editor:
+
+  iab <expr> 2018/05/19 19h20 strftime("%Y/%m/%d %Hh%M")
+
+Auxiliary octave m-files are arcmakemenu.m which is used to construct the
+event-driven menu auto-tag-based callback switchyard system. This is
+available at: 
+
+  https://github.com/AlanRobertClark/arcmakemenu.git  
+
+Also printEpsPng.m which auto-labels the .eps and .png files using the
+filename supplied. The .eps is useful for vector-based printing, the .png
+for raster-based web-browsing etc.
+
+Finally, chooseDate.m assists in accepting a date input for the Start and
+End of the plottable data.
+
+Screenshots are scrn01.png and scrn02.png.
+
+File Saved outputs are in 201801*.{eps,png} 
+
+
+

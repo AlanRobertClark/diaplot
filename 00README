@@ -1,0 +1,33 @@
+% diaplot.m
+%
+% diaplot("fn.txt")
+% diaplot()
+% 
+% GUI is created with a CallBack event-driven interface, handled via a
+% SwitchYard, all through this single file.
+%
+% External requirements are chooseDate, printEpsPng, and arcmakemenu.
+%
+% diaplot() reads files, entries starting the line with a valid
+% Date-and-time stamp: 2018/05/14 08h34 followed by a Blood Glucose reading
+% in mmol/l, a bolus injection, a basal injection(suffixed with L for
+% Lantus), or any combination of the above! Comments on meals etc follow.
+% Any line not following the above is ignored.
+%
+% Plots are Blood Glucose versus time, a daily mean and standard deviation
+% quadrant plot (High/low vs Stable/Unstable), Insulin versus time,
+% Total Daily Dose (bolus, just add the basal :-) versus time, and a Blood
+% Glucose versus time-of-day (line per day).
+%
+% The mean/std.dev. dot-per-day and BG vs time-of-day. line per day are
+% clickable, and the actual date corresponding to the dot/line appears in
+% the plot title.
+%
+% The plots are saveable (just give the filname, without extension, and an
+% .eps and .png version is saved for printing and web-viewing) and the date
+% range is settable within the data that is loaded. 
+%
+% Data files are concatenated, so many can be read in sequence. (They are
+% not subsequently sorted :-)
+%
+% 20180514 AlanRobertClark@gmail.com
