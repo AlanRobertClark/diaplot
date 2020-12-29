@@ -48,12 +48,13 @@ function diaplot(fname);
     CFh = diaplotCreate();
     if ((nargin == 1) && ischar(fname))
       Dfid = fopen(fname, 'rt');
-      if Dfid == '-1'
+      if Dfid < 0
         errordlg(['File: ' fname ' could not be opened.']);
+        return
       endif
       diaplotFileOpenAppendData(CFh, Dfid);
-      return;
-    endif;
+      return
+    endif
   endif
   
   if isempty(CBh)
@@ -149,8 +150,9 @@ function diaplotFileOpenAppendDataGui(CFh)
   [Dfn, Dpn, Didx] = uigetfile ('D.txt', 'Diaplot Data File');
   Dfqn = fullfile (Dpn, Dfn);
   Dfid = fopen (Dfqn, 'rt');
-  if Dfid == '-1'
+  if Dfid < 0
     errordlg (['File: ' Dfqn ' could not be opened.']);
+    return
     % No point in continuing :-)
     return
   endif
